@@ -8,6 +8,7 @@ authors = ["tClelford <tfjclelford@gmail.com>"]
 python = "^3.10"
 pandas = "^1.5.2"
 black = "^22.10.0"
+numpy = "^1.23.5"
 
 [tool.poetry.dev-dependencies]
 
