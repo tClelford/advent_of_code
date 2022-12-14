@@ -12,6 +12,9 @@ test = [
     "35390",
 ]
 
+test_2 = ["12",
+        "34"]
+
 def get_visible_count(input: List[str]) -> int:
     vals = get_input_matrix(input)
     visible = np.zeros(vals.shape)
@@ -80,7 +83,7 @@ for x, tree in enumerate(input[0]):
     print(get_left(x, int(tree), input[0]))
 
 
-# get_visible_count(test)
+get_visible_count(test_2)
 
 
 
