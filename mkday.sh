@@ -1,10 +1,12 @@
 day=$1
 year=`date +'%Y'`
 
-ppath="./$year/src/$day.py"
-dpath="./$year/data/$day.txt"
+ddir="./$year/$day"
+mkdir $ddir
+
+touch "$ddir/data.txt"
 
 touch $ppath
 touch $dpath
 
-cp ./template.py $ppath
+cp ./template.py "$ddir/solve.py"

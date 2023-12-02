@@ -5,9 +5,9 @@ year=`date +'%Y'`
 file="./$year/src/$d.py"
 data="./$year/data/$d.txt"
 
-if [ $f="-d" ]
+if [ -z $f ];
 then
-    python $file $data
-else
     python $file
+else
+    python $file $data
 fi

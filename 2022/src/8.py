@@ -15,29 +15,36 @@ test = [
 test_2 = ["12",
         "34"]
 
+
+def rotate_arr_90(arr):
+    rotated = np.rot90(arr, k=1)
+    return rotated
+
+
 def get_visible_count(input: List[str]) -> int:
     vals = get_input_matrix(input)
     visible = np.zeros(vals.shape)
-    for i in range(4):
-        visible = np.rot90(visible, i)
-        vals = np.rot90(vals, i)
-        visible[0] = 1
 
-        for x, arr in enumerate(vals):
-            for y, _ in enumerate(arr):
-                if y == 0:
-                    continue
+    set_visibles(vals=)
 
-                val = arr[y]
-                trees_to_edge = arr[0:y]
 
-                if val > trees_to_edge.max():
-                    visible[x][y] = 1
+
 
     vals = np.rot90(vals, 2)
     visible = np.rot90(visible, 2)
 
 
+def set_visibles(vals: np.ndarray, visible:np.ndarray):
+    for x, arr in enumerate(vals):
+        for y, _ in enumerate(arr):
+            if y == 0:
+                continue
+
+            val = arr[y]
+            trees_to_edge = arr[:y]
+
+            if val > trees_to_edge.max():
+                visible[x][y] = 1
 
 
     print("visible trees:", sum(sum(visible)))
@@ -78,12 +85,17 @@ def get_input_matrix(input: List[str]):
     return np.array([[int(c) for c in l] for l in input], np.int32)
 
 
-input = get_input_matrix(test)
-for x, tree in enumerate(input[0]):
-    print(get_left(x, int(tree), input[0]))
-
-
-get_visible_count(test_2)
 
 
 
+def test_rotate():
+    input = ["12","34"]
+    matrix = get_input_matrix(input)
+
+
+def main():
+    test_rotate()
+
+
+if __name__ == "__main__":
+    main()
